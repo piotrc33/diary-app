@@ -8,6 +8,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteFormComponent } from './note-form/note-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NoteService } from './note.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [NoteService], // services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

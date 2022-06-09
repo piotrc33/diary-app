@@ -17,6 +17,10 @@ const routes: Routes = [
     path: "notes/new",
     component: NoteFormComponent,
   },
+  {
+    path: "notes/edit",
+    component: NoteFormComponent,
+  },
 ];
 
 @NgModule({
