@@ -8,23 +8,12 @@ import { NoteService } from '../note.service';
   styleUrls: ['./note-list.component.css']
 })
 export class NoteListComponent implements OnInit {
-
-  public notes : Note[] = [
-    {
-      id: 1,
-      title: "hwdp",
-      text: "rks huwdu"
-    },
-    {
-      id: 2,
-      title: "hwdp2",
-      text: "rks huwdu2"
-    }
-  ]
+  public notes : Note[] = [];
 
   constructor(public noteService : NoteService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.notes = await this.noteService.getNotes();
   }
 
 }

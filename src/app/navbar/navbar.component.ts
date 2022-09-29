@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   public isMenuCollapsed = true;
-  constructor() { }
+  constructor(public noteService : NoteService) { }
 
   ngOnInit(): void {
   }

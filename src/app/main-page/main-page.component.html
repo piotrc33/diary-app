@@ -1,7 +1,20 @@
 <div class="jumbotron">
   <div class="container">
-    <h1 class="display-4">Diary</h1>
-    <p class="lead">Save your notes in here and start your diary!</p>
-    <p><a class="btn btn-primary" routerLink="/notes/new" role="button">New note</a></p>
+    <div class="row">
+      <div class="col">
+        <h1 class="display-4">Diary</h1>
+        <p class="lead">Save your notes in here and start your diary!</p>
+        <p><a class="btn btn-primary" routerLink="/notes/new" role="button">New diary entry</a></p>
+      </div>
+      <div class="col">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2011%2F01%2F22%2Farts%2FDIARY%2FDIARY-jumbo.jpg%3Fquality%3D75%26auto%3Dwebp%26disable%3Dupscale&f=1&nofb=1" alt="" style="width: 200px;">
+      </div>
+    </div>
+    
+    
   </div>
+</div>
+<div class="container">
+  <h2>Total entries: {{notes.length}}</h2>
+  <p class="lead">Your diary timespan: {{minDate.toISOString().split('T')[0]}} - {{maxDate.toISOString().split('T')[0]}}</p>
 </div>

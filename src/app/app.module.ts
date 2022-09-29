@@ -9,6 +9,9 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { NoteFormComponent } from './note-form/note-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteService } from './note.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { NoteService } from './note.service';
     MainPageComponent,
     NoteListComponent,
     NoteFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [NoteService], // services
   bootstrap: [AppComponent]

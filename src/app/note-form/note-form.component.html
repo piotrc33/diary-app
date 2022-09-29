@@ -1,8 +1,9 @@
 <!-- New note -->
 <div class="container">
-  <h2 class="display-2 my-3">New/edit note</h2>
+  <h2 *ngIf="!id" class="display-2 my-3">New note</h2>
+  <h2 *ngIf="id" class="display-2 my-3">Edit note</h2>
 
-  <form action="" novalidate>
+  <form [formGroup]="noteForm" (ngSubmit)="handleSubmit()">
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -10,6 +11,9 @@
         class="form-control is-invalid"
         id="title"
         placeholder="Title"
+        formControlName="title"
+        [class.is-invalid]="title?.invalid && (title?.dirty || title?.touched)"
+        [class.is-valid]="title?.valid"
         required
       />
       <div class="invalid-feedback">Please provide a title!</div>
@@ -19,14 +23,32 @@
       <textarea
         class="form-control"
         id="text"
+        formControlName="text"
         rows="5"
+        [class.is-invalid]="text?.invalid && (text?.dirty || text?.touched)"
+        [class.is-valid]="text?.valid"
         required
       ></textarea>
       <div class="invalid-feedback">Please provide a description!</div>
     </div>
-  
-    <button type="submit" class="btn btn-primary">Create</button>
+
+    <button
+      *ngIf="!id"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="noteForm.invalid"
+      (click)="noteService.setSelectedNote(null)"
+    >
+      Create
+    </button>
+    <button
+      *ngIf="id"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="noteForm.invalid"
+      (click)="noteService.setSelectedNote(null)"
+    >
+      Edit
+    </button>
   </form>
 </div>
-
-<div>{{noteService.getSelectedNote() | json}}</div>
